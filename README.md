@@ -26,7 +26,7 @@
 <br>
 
 
-## Detailed Implementation Plan
+## Detailed Implementation Workflow
 
 ### Step 1: Set Up the HPC Cluster
 #### 1. Hardware Setup:
