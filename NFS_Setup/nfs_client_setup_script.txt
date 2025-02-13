@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# Variables
+NFS_SERVER_IP="192.168.82.90" # Replace with actual server IP
+MOUNT_POINT="/mnt/nfs_client"
+
+# Install required packages
+echo "Installing NFS client utilities..."
+sudo apt update -y
+sudo apt install -y nfs-common
+
+# Create a mount point
+echo "Creating mount point..."
+sudo mkdir -p $MOUNT_POINT
+
+# Mount the shared directory
+echo "Mounting NFS shared directory..."
+sudo mount $NFS_SERVER_IP:/mnt/nfs_project $MOUNT_POINT
+
+# Persist the mount in /etc/fstab
+echo "Configuring persistent mount..."
+echo "$NFS_SERVER_IP:/mnt/nfs_project $MOUNT_POINT nfs defaults 0 0" | sudo tee -a /etc/fstab
+
+# Verify the mounted directory
+df -h $MOUNT_POINT
+
+echo "NFS client setup completed!"

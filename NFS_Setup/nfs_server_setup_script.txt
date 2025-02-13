@@ -1,0 +1,32 @@
+!/bin/bash
+
+# Variables
+EXPORT_DIR="/mnt/nfs_project"
+SLAVE_NODES=("192.168.82.35" "192.168.82.27") # Replace with actual slave IPs
+
+# Install required packages
+echo "Installing NFS server..."
+sudo apt update -y
+sudo apt install -y nfs-kernel-server
+
+# Create and configure the shared directory
+echo "Setting up shared directory..."
+sudo mkdir -p $EXPORT_DIR
+sudo chown nobody:nogroup $EXPORT_DIR
+sudo chmod 755 $EXPORT_DIR
+
+# Add export rules for the specified slave nodes
+echo "Configuring export rules..."
+for IP in "${SLAVE_NODES[@]}"; do
+    echo "$EXPORT_DIR $IP(rw,sync,no_subtree_check)" | sudo tee -a /etc/exports
+done
+
+# Restart and enable NFS server
+echo "Restarting NFS server..."
+sudo systemctl restart nfs-kernel-server
+sudo systemctl enable nfs-kernel-server
+
+# Verify exports
+sudo exportfs -v
+
+echo "NFS server setup completed!"
