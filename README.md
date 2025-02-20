@@ -37,7 +37,7 @@
 
 #### 2. Software Stack:
 - **OS:** Linux distributions optimized for HPC (CentOS, Ubuntu Server).
-- **Cluster Management:** OpenHPC or Rocks Cluster.
+- **Cluster Management:** XCAT , OpenHPC or Rocks Cluster.
 - **Scheduler:** SLURM, PBS, or Torque.
 - **MPI Library:** OpenMPI or MPICH for parallel processing.
 
@@ -57,6 +57,8 @@
   - Memory usage
   - Disk health/I/O
   - Network traffic
+  - Errror Code
+  - Warnings
 
 ### Step 3: Data Aggregation and Preprocessing
 #### 1. Data Pipeline:
@@ -102,7 +104,7 @@
 ### Tools Summary
 | Function                | Tools                                                       |
 |-------------------------|-------------------------------------------------------------|
-| Cluster Management      | OpenHPC, SLURM, MPI                                         |
+| Cluster Management      | XCAT , OpenHPC, SLURM, MPI                                         |
 | Monitoring              | Prometheus, Node Exporter, Grafana                          |
 | Log Analysis            | Fluentd, Logstash, Elasticsearch                            |
 | Modeling                | Python (Scikit-learn, TensorFlow, PyTorch)                  |
