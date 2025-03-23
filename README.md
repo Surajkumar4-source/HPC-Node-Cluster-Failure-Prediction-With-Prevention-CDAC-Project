@@ -1,6 +1,6 @@
 
 
-# **Project Title:**  **HPC Node/Cluster Failure Prediction Using Logs and Monitoring Metrics**  
+# **Project Title:**  **HPC Node/Cluster Failure Prediction With Prevention Using Logs and Monitoring Metrics**  
 
 
 
